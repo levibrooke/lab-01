@@ -5,6 +5,11 @@ body {
   margin: 0 auto;
 }
 
+main {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 nav {
   height: 100px;
   background-color: var(--nord6);
@@ -18,18 +23,22 @@ aside {
   background-color: var(--nord5);
   position: relative;
   text-align: center;
-  float: left;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
 }
 
 .row {
-  float: left;
   width: 760px;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .box-wide {
   width: 380px;
   height: 200px;
-  float: left;
   position: relative;
   text-align: center;
 }
@@ -45,7 +54,6 @@ aside {
 .box-horiz {
   width: 190px;
   height: 250px;
-  float: left;
   position: relative;
   text-align: center;
 }
@@ -67,7 +75,6 @@ aside {
 }
 
 footer {
-  float: left;
   position: relative;
   width: 760px;
   height: 150px;
@@ -75,11 +82,15 @@ footer {
   background-color: var(--nord4);
 }
 
-/* breakpoint: 768px */
-@media only screen and (max-width: 767px) {
+/* breakpoint: 960px */
+@media only screen and (min-width: 480px) and (max-width: 959px) {
   body {
-    width: 480px;
+    max-width: 480px;
     margin: 0 auto;
+  }
+
+  main {
+    flex-flow: column;
   }
 
   nav {
@@ -94,14 +105,13 @@ footer {
   }
 
   .row {
-    float: left;
     width: auto;
+    flex-flow: row wrap;
   }
 
   .box-wide {
     width: 480px;
     height: 125px;
-    float: left;
     position: relative;
     text-align: center;
   }
@@ -139,5 +149,75 @@ footer {
     width: 480px;
     height: 80px;
     background-color: var(--nord9);
+  }
+}
+
+/* breakpoint: 480px */
+@media only screen and (max-width: 479px) {
+  body {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  main {
+    flex-flow: column;
+  }
+
+  nav {
+    height: 75px;
+    background-color: var(--nord12);
+  }
+
+  aside {
+    width: 480px;
+    height: 150px;
+    background-color: var(--nord11);
+  }
+
+  .row {
+    width: auto;
+    flex-flow: row wrap;
+  }
+
+  .box-wide {
+    width: 480px;
+    height: 125px;
+    position: relative;
+    text-align: center;
+  }
+
+  .box-wide:first-of-type {
+    background-color: var(--nord10);
+  }
+  
+  .box-wide:last-of-type {
+    background-color: var(--nord9);
+  }
+
+  .box-horiz {
+    width: 100%;
+    height: 250px;
+  }
+
+  .box-horiz:nth-of-type(1) {
+    background-color: var(--nord8);
+  }
+  
+  .box-horiz:nth-of-type(2) {
+    background-color: var(--nord7);
+  }
+  
+  .box-horiz:nth-of-type(3) {
+    background-color: var(--nord6);
+  }
+  
+  .box-horiz:nth-of-type(4) {
+    background-color: var(--nord5);
+  }
+
+  footer {
+    width: 100%;
+    height: 80px;
+    background-color: var(--nord4);
   }
 }
